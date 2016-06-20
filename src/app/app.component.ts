@@ -11,7 +11,7 @@ import {HomeComponent} from './home/home.component.ts';
 })
 @RouteConfig([
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: HomeComponent,
     useAsDefault: true
