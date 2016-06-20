@@ -12,6 +12,7 @@ export class ScrollItemDirective implements OnInit, OnDestroy{
 	private _el:HTMLElement;
 	private _scrollSubscription: any;
 	private _animationSubscription: any;
+	private _classToggleSubscription: any;
 	private _index: number;
 
 	@Input('scroll-item') index: any;
@@ -29,9 +30,6 @@ export class ScrollItemDirective implements OnInit, OnDestroy{
 		var el = $(this._el);
 		el.addClass('active');
 		el.addClass('frame');
-		if(this._index === 1){
-		    el.addClass('animation');  
-		}
 		el.attr('data-index', this._index);
 		el.attr('id', 'scroll-component-' + this._index);
 		el.css('z-index', 100 - this._index);
@@ -39,10 +37,13 @@ export class ScrollItemDirective implements OnInit, OnDestroy{
 
 	private _attachListeners(){
 		this._scrollSubscription = this._scrollService.getScrollEventEmitter().subscribe(data=> {
-		    this._scrollHandler(data)
+		    this._scrollHandler(data);
 		})
 		this._animationSubscription = this._scrollService.getToggleAnimationEventEmitter().subscribe(data=> {
-		    this._animationHandler(data)
+		    this._animationHandler(data);
+		})
+		this._classToggleSubscription = this._scrollService.getClassToggleEventEmitter().subscribe(data=>{
+			this._classToggleHandler(data);
 		})
 	}
 
@@ -57,6 +58,13 @@ export class ScrollItemDirective implements OnInit, OnDestroy{
 		var index =data.index;
 		if(index == this._index){
 			$(this._el).toggleClass('animation');
+		}
+	}
+	private _classToggleHandler(data){
+		var index =data.index;
+		var className = data.className;
+		if(index == this._index){
+			$(this._el).toggleClass(className);
 		}
 	}
 	private _broadcastEvents(){

@@ -37,9 +37,11 @@ export class ScrollCollectionDirective implements OnInit, OnDestroy{
     }
     scrollTransitionAnimationToggle (oldIndex, newIndex){
       this.broadcastAnimationEvent(oldIndex);
+      console.log('broadcast animation event for old index: ' + oldIndex);
       window.setTimeout(function(){
         this.broadcastAnimationEvent(newIndex);
-      }.bind(this), 1000);
+        console.log('broadcast animation event for new index: ' + newIndex);
+      }.bind(this), 700);
     }
     broadcastScrollEvent(index){
       console.log('broadcast scroll event: ' + index);
@@ -59,6 +61,13 @@ export class ScrollCollectionDirective implements OnInit, OnDestroy{
     }
     broadcastAnimationEvent(index){
       this._scrollService.getToggleAnimationEventEmitter().emit({index: index});
+    }
+    broadcastClassToggleEvent(index, className){
+      var data = {
+        index: index,
+        className: className
+      }
+      this._scrollService.getClassToggleEventEmitter().emit(data);
     }
 
 
@@ -124,14 +133,18 @@ export class ScrollCollectionDirective implements OnInit, OnDestroy{
           return
         };
         this.broadcastScrollEvent(this._activeIndex);
-        this.scrollTransitionAnimationToggle(this._activeIndex - 1, this._activeIndex);
+        this.scrollTransitionAnimationToggle(this._activeIndex, this._activeIndex + 1);
         this._activeIndex += 1;
+
+          this.broadcastClassToggleEvent(this._activeIndex, 'current');
+
       } else if(currentScrollPosition < this._lastScrollPosition){
         $(window).css('overflow', 'hidden')
         window.setTimeout(this._resetScroll, 700);
         if(this._activeIndex === 1){ 
           return
         };
+        this.broadcastClassToggleEvent(this._activeIndex, 'current');
         this._activeIndex -= 1;
         $(window).css('overflow', 'hidden')
         this.broadcastScrollEvent(this._activeIndex);

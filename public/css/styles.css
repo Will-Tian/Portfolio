@@ -46,6 +46,16 @@ a:focus, a:hover{
     bottom: 0px;
     overflow: hidden;
  }
+ .boxInner-viewport img{
+    position: absolute;
+    top: 0%;
+    height: 115%;
+    will-change: top;
+    -webkit-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
  .boxInner-content{
     position: absolute;
     width: 100%;
@@ -95,19 +105,28 @@ a:focus, a:hover{
  }
  .frame {
  	position: absolute;
- 	top: -120%;
+    top: -30%;
  	width: 100%;
- 	-webkit-transition: 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
- 	-moz-transition: 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
- 	-o-transition: 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
- 	transition: 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
- 	-webkit-transform: translateZ(0);background-color: black;
+ 	-webkit-transition: top 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ 	-moz-transition: top 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ 	-o-transition: top 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ 	transition: top 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    max-height: 100vh;
+    overflow: hidden;
+ 	-webkit-transform: translateZ(0);
+    will-change: max-height, top;
+    background-color: black;
+    max-height: 0vh;
  }
 
  .frame.active {
- 	position: absolute;
- 	top: 0%;
+    top: 0vh;
+    max-height: 100vh;
  }
+ .frame.active.current img{
+    top: -15%; 
+ }
+
  .viewport-scroll {
  	width: 100vw;
  	height: 100vh;

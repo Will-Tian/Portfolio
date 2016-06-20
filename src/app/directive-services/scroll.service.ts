@@ -12,6 +12,7 @@ export class ScrollService {
 	private _toggleAnimationEvent$: EventEmitter<any> = new EventEmitter();
 	private _navScrollEvent$: EventEmitter<any> = new EventEmitter();
 	private _newComponentEvent$: EventEmitter<any> = new EventEmitter();
+	private _classToggleEvent$: EventEmitter<any> = new EventEmitter();
 
 	getScrollEventEmitter(){
 		return this._scrollEvent$;
@@ -36,5 +37,8 @@ export class ScrollService {
 	}
 	getNewComponentEventEmitter(){
 		return this._newComponentEvent$;
+	}
+	getClassToggleEventEmitter(){
+		return this._classToggleEvent$;
 	}
 }
