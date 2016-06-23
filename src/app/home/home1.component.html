@@ -1,12 +1,42 @@
-<div class="container-fluid">
+<div class="container-fluid" id="home-1">
 	<div class="row">
 		<div class="col-xs-12 no-padding">
 			<div class="box-viewport filter-dark">
+				<svg id="js-home--pattern" class="pattern-overlay" viewBox="0 0 1596 1000" preserveAspectRatio="xMidYMid slice">
+					<defs>
+						<mask id="js-home--shapes">
+							<rect width="1596" height="1000" fill="#fff"></rect>
+							<path class="js-shape js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
+								c38.752-38.829,38.752-101.904,0-140.734c-38.855-38.855-101.801-38.855-140.76,0L453.273,329.984
+								c-39.012,38.961-39.012,101.957,0,140.918C472.648,490.172,498.203,499.965,523.602,499.965z"></path>
+							<path class="js-shape js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
+								c19.402,19.453,44.852,29.168,70.381,29.168c25.424,0,50.953-9.715,70.406-29.168l548.824-548.904
+								c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
+						</mask>
+					</defs>
+					<rect id="js-home--mask" width="1596" height="1000" style="mask: url(&quot;#js-home--shapes&quot;); fill: rgb(232, 193, 157);"></rect>
+				</svg>
 				<div class="boxInner-viewport">
-					<img class="box-img size-fixed img-render-transition" src="../../../public/images/p1.jpg">		
+					<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_flower.jpg">	
+						</div>
+
+					    <div class="item">
+					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_field.jpg">	
+					    </div>
+
+					    <div class="item">
+					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_red.jpg">	
+					    </div>
+					    <div class="item">
+					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_winter_mountain.jpg">	
+					    </div>
+					  </div>
+					</div>	
 					<div class="boxInner-content">
 						<div class="col-xs-12 no-padding home-1-content">
-
 						</div>
 					</div>
 				</div>
