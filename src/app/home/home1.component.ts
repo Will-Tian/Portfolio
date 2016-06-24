@@ -10,9 +10,12 @@ import {ScrollService} from '../directive-services/scroll.service';
 export class Home1Component{
 	currentSlide = 0;
 	slideNum = 2;
+	currentTitle = 0;
+	titleNum = 4;
 	slideColors = ['rgba(85, 178, 220, 0.95)', 'rgba(48, 33, 19, 0.95)', 'rgba(101, 171, 123, 0.95)'];
 	private _slideAnimationInterval: any;
 	private _progressBarInterval: any;
+	private _progressTitleInterval: any;
 
 	ngOnInit() { this.initialize(); }
 	ngOnDestroy() { this.cleanUp(); }
@@ -20,6 +23,7 @@ export class Home1Component{
 	initialize() {
 		this._startSlideAnimationInterval();
 		this._startProgressBarInterval();
+		this._startProgressTitleInterval();
 	}
 
 	cleanUp() {
@@ -59,7 +63,7 @@ export class Home1Component{
 	}
 	private _progressBarAnimation(){
 		window.setTimeout(this._progressBarExpand, 0);
-		window.setTimeout(this._progressBarFull, 4200);
+		window.setTimeout(this._progressBarFull, 4100);
 		window.setTimeout(this._progressBarClosing, 4300);
 		window.setTimeout(this._progressBarReset, 4800);
 	}
@@ -74,5 +78,13 @@ export class Home1Component{
 	}
 	private _progressBarReset(){
 		$('#progress-bar').removeClass('expanding full closing');		
+	}
+
+	private _startProgressTitleInterval(){
+		this._progressTitleInterval = window.setInterval(this._progressTitleAnimation.bind(this), 4900);
+	}
+	private _progressTitleAnimation(){
+		if(this.currentTitle >= this.titleNum){this.currentTitle = 0;return};
+		this.currentTitle += 1;
 	}
 }

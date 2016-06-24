@@ -59,13 +59,35 @@
 						</div>
 						<div class="col-xs-12 no-padding home-content home-1-content">
 							<div class="progress-title-container">
-								<div class="progress-title first">
+								<div class="progress-title" [ngClass]="{first: currentTitle === 0, second: currentTitle === 1, third: currentTitle === 2, fourth: currentTitle === 3, off: currentTitle === 4}" id="progress-title-1" data-id="0">
+									<span class="progress-title-top">
+										Portfolio	
+									</span>
+									<span class="progress-title-bottom"></span>
+								</div>
+								<div class="progress-title" id="progress-title-2" [ngClass]="{first: currentTitle === 4, second: currentTitle === 0, third: currentTitle === 1, fourth: currentTitle === 2, off: currentTitle === 3}">
+									<span class="progress-title-top">
+										Will Tian
+									</span>
+									<span class="progress-title-bottom"></span>
+								</div>
+								<div class="progress-title" id="progress-title-3" [ngClass]="{first: currentTitle === 3, second: currentTitle === 4, third: currentTitle === 0, fourth: currentTitle === 1, off: currentTitle === 2}">
+									<span class="progress-title-top">
+										Backend Developer
+									</span>
+									<span class="progress-title-bottom"></span>
+								</div>
+								<div class="progress-title off" id="progress-title-4" [ngClass]="{first: currentTitle === 2, second: currentTitle === 3, third: currentTitle === 4, fourth: currentTitle === 0, off: currentTitle === 1}">
+									<span class="progress-title-top">
+										Frontend Developer
+									</span>
+									<span class="progress-title-bottom"></span>
+								</div>
+								<div class="progress-title off" id="progress-title-4" [ngClass]="{first: currentTitle === 1, second: currentTitle === 2, third: currentTitle === 3, fourth: currentTitle === 4, off: currentTitle === 0}">
 									<span class="progress-title-top">
 										Software Engineer
 									</span>
-									<span class="progress-title-bottom">
-
-									</span>
+									<span class="progress-title-bottom"></span>
 								</div>
 							</div>
 						</div>
