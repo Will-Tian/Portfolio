@@ -2,7 +2,6 @@
 =            Globals            =
 ===============================*/
 body{
-	background-color: black;
     margin: 0px;
 }
 a:focus, a:hover{
@@ -140,6 +139,13 @@ a:focus, a:hover{
     width: 19vw;
     height: 100vh;
  }
+ .slide{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0vh;
+    overflow: hidden;
+ }
  .slide-image-top{
     position: absolute;
     width: 100vw;
@@ -155,8 +161,17 @@ a:focus, a:hover{
     opacity: 0;
     height: 100%;
  }
+ .slide-image-container img{
+    width: 100%;
+    height: 200%;
+    position: absolute;
+
+ }
  .slide-image-top .slide-image-container{
     transform: matrix(1, 0, 0, 1, -100, 0);
+ }
+ .slide-image-top .slide-image-container img{
+    top: 0%;
  }
  .slide-image-bottom{
     position: absolute;
@@ -168,9 +183,103 @@ a:focus, a:hover{
  .slide-image-bottom .slide-image-container{
     transform: matrix(1, 0, 0, 1, 100, 0);
  }
- .slide-image-container.current{
+ .slide-image-bottom .slide-image-container img{
+    top: -100%;
+ }
+ .current .slide-image-container{
     transform: matrix(1, 0, 0, 1, 0, 0) !important;  
     opacity: 1 !important;
+ }
+ .progress-bar-container{
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(255, 255, 255, 0.3);
+    border-style: dotted;
+    z-index: 200;
+    -webkit-transform: translateZ(0);
+ }
+ .progress-bar{
+    position: absolute;
+    z-index: 300;
+    width: 100vw;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    right: auto;
+    height: auto;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(255, 255, 255, .7);
+    border-style: solid;
+    width: 0%;
+    will-change: width;
+    -webkit-transition: width 4.1s linear;
+    -moz-transition: width 4.1s linear;
+    -o-transition: width 4.1s linear;
+    transition: width 4.1s linear;
+ }
+ .progress-bar.expanding{
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+ }
+ .progress-bar.full{
+    right: 0px;
+    left: auto;
+    -webkit-transition: width .5s linear;
+    -moz-transition: width .5s linear;
+    -o-transition: width .5s linear;
+    transition: width .5s linear;
+ }
+ .progress-bar.closing{
+    width: 0%;
+ }
+ .progress-title-container{
+
+ }
+ .progress-title{
+    position: absolute;
+    top: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    margin-top: -15px;
+    font-size: 55px;
+    width: 33vw;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    z-index: 300;
+    -webkit-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -moz-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -o-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+ }
+ .progress-title.first{
+    left: 0%;
+    right: auto;
+    color: rgba(255,255,255,0.4);
+ }
+ .progress-title.second{
+    left: 50%;
+    right: auto;
+ }
+ .progress-title.third{
+    left: 100%;
+    right: auto;
+    color: rgba(255,255,255,0.4);
+ }
+ .progress-title.off{
+    right: -100%;
+    left: auto;
+    transform: translate(-100%, -50%);
+    color: rgba(255,255,255,0);  
  }
  /*colors:*/
  /*black: rgba(34, 35, 38, 0.9);*/
@@ -182,7 +291,17 @@ a:focus, a:hover{
  /*red: rgba(152, 42, 42, 0.9);*/
  /*orange: rgba(242, 153, 46, 0.9);*/
  /*grey-blue: rgb(192, 202, 204);*/
-
+ /*matching-brown: rgba(48, 33, 19, 0.95)*/
+ /*matching-blue: rgba(85, 178, 220, 0.95)*/
+ /*matching-yellow: rgba(203, 193, 77, 0.95);*/
+ /*matching-dark-green: rgba(28, 39, 45, 0.95);*/
+ /*matching-light-green: rgba(101, 171, 123, 0.95);*/
+ .home-content{
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+ }
  .home-1-content .info-panel{
     background-color: rgba(54, 70, 93, 1);
  }
@@ -210,12 +329,11 @@ a:focus, a:hover{
  #home-1 svg{
     position: absolute;
     top: 0px;
-    z-index: 100;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
  }
  #home-1 #js-home--mask{
-    fill: rgba(255, 255, 255, .95) !important;
     transition: fill .7s ease;
     -webkit-transition: fill .7s ease;
     -moz-transition: fill .7s ease;
@@ -227,6 +345,12 @@ a:focus, a:hover{
     -moz-transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -o-transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
+ .js-shape--top{
+    transform: translateY(-5px);
+ }
+ .js-shape--bottom{
+    transform: translateY(5px);
  }
  .js-shape--top.first{
     transform: matrix(1, 0, 0, 1, -25, 25);

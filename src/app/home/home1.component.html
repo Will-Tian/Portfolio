@@ -14,39 +14,60 @@
 								c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
 						</mask>
 					</defs>
-					<rect id="js-home--mask" width="1596" height="1000" style="mask: url(&quot;#js-home--shapes&quot;); fill: rgb(232, 193, 157);"></rect>
+					<rect id="js-home--mask" width="1596" height="1000" style="mask: url(&quot;#js-home--shapes&quot;); fill: rgba(85, 178, 220, 0.95);"></rect>
 				</svg>
 				<div class="boxInner-viewport">
-<!-- 					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					  <div class="carousel-inner" role="listbox">
-						<div class="item active">
-							<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_flower.jpg">	
+					<div class="slide" id="slide-0" [ngClass]="{current: currentSlide === 0}">
+						<div class="slide-image-top">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo.jpg">	
+							</div>
 						</div>
-
-					    <div class="item">
-					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_field.jpg">	
-					    </div>
-
-					    <div class="item">
-					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_red.jpg">	
-					    </div>
-					    <div class="item">
-					    	<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_winter_mountain.jpg">	
-					    </div>
-					  </div>
-					</div> -->	
-					<div class="slide-image-top">
-						<div class="slide-image-container">
-							<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_field.jpg">	
+						<div class="slide-image-bottom">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo.jpg">			
+							</div>
+						</div>
+					</div>	
+					<div class="slide" id="slide-1" [ngClass]="{current: currentSlide === 1}">
+						<div class="slide-image-top">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_2.jpg">	
+							</div>
+						</div>
+						<div class="slide-image-bottom">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_2.jpg">			
+							</div>
 						</div>
 					</div>
-					<div class="slide-image-bottom">
-						<div class="slide-image-container">
-							<img class="box-img size-fixed img-render-transition" src="../../../public/images/sunrise_field.jpg">			
+					<div class="slide" id="slide-2" [ngClass]="{current: currentSlide === 2}">
+						<div class="slide-image-top">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_3.jpg">	
+							</div>
+						</div>
+						<div class="slide-image-bottom">
+							<div class="slide-image-container">
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_3.jpg">			
+							</div>
 						</div>
 					</div>
 					<div class="boxInner-content">
-						<div class="col-xs-12 no-padding home-1-content">
+						<div class="progress-bar-container">
+							<div class="progress-bar" id="progress-bar"></div>
+						</div>
+						<div class="col-xs-12 no-padding home-content home-1-content">
+							<div class="progress-title-container">
+								<div class="progress-title first">
+									<span class="progress-title-top">
+										Software Engineer
+									</span>
+									<span class="progress-title-bottom">
+
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
