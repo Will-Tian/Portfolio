@@ -3,6 +3,7 @@
 ===============================*/
 body{
     margin: 0px;
+    font-family: Calibre,sans-serif;
 }
 a:focus, a:hover{
     text-decoration: none;
@@ -190,6 +191,21 @@ a:focus, a:hover{
     transform: matrix(1, 0, 0, 1, 0, 0) !important;  
     opacity: 1 !important;
  }
+ .slide-image{
+    width: 100vw;
+    height: 100vh;
+ }
+ .slide-image-primary-text{
+    position: absolute;
+    width: 50vw;
+    height: auto;
+    font-size: 85px;
+    font-weight: 700;
+    text-transform: uppercase;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+ }
  .progress-bar-container{
     position: absolute;
     width: 100vw;
@@ -253,13 +269,17 @@ a:focus, a:hover{
     font-size: 55px;
     width: 100vw;
     text-align: center;
-    font-weight: 600;
-    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+    color: rgba(255,255,255,0.25);
     z-index: 300;
-    -webkit-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    -moz-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    -o-transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    transition: left 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 800ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    will-change: left, font-size;
+    -webkit-transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -moz-transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -o-transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+ }
+ .progress-title:hover{
+    cursor: pointer;
  }
  .progress-title.first{
     left: 0%;
@@ -269,7 +289,7 @@ a:focus, a:hover{
     left: 50%;
     right: auto;
     color: rgba(255,255,255,0.9);
-    /*font-size: 100px;*/
+    font-size: 80px;
  }
  .progress-title.third{
     left: 100%;
@@ -279,12 +299,28 @@ a:focus, a:hover{
     left: 150%;
     right: auto;
  }
+ .progress-title.fifth{
+    left: 200%;
+    right: auto;
+ }
  .progress-title.off{
     right: -100%;
     left: auto;
     transform: translate(-100%, -50%);
     color: rgba(255,255,255,0);  
     opacity: 0;
+ }
+ #progress-title-0.progress-title.second{
+ }
+ #progress-title-1.progress-title.second{
+ }
+ #progress-title-2.progress-title.second{
+ }
+ #progress-title-3.progress-title.second{
+ }
+ #progress-title-4.progress-title.second{
+ }
+ #progress-title-5.progress-title.second{
  }
  /*colors:*/
  /*black: rgba(34, 35, 38, 0.9);*/
@@ -346,10 +382,10 @@ a:focus, a:hover{
  }
  .js-shape{
     transform: matrix(1, 0, 0, 1, 0, 0);
-    -webkit-transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -moz-transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -o-transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition: 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transition: 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -moz-transition: 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -o-transition: 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
  }
  .js-shape--top{
     transform: translateY(-5px);
@@ -358,10 +394,10 @@ a:focus, a:hover{
     transform: translateY(5px);
  }
  .js-shape--top.first{
-    transform: matrix(1, 0, 0, 1, -25, 25);
+    transform: matrix(1, 0, 0, 1, -50, 50);
  }
  .js-shape--bottom.first{
-    transform: matrix(1, 0, 0, 1, 25, -25);  
+    transform: matrix(1, 0, 0, 1, 50, -50);  
  }
  .js-shape--top.second{
     transform: translate(-50%, 50%);
@@ -379,8 +415,62 @@ a:focus, a:hover{
     transform: scale(10, 10) translate(-103.5%, 0%);
  }
  .js-shape--bottom.fourth{
-    transform: scale(10, 10) translate(-103.5%, 0%);
+    /*transform: scale(10, 10) translate(-103.5%, 0%);*/
  }
+ /*==============================
+ =            Navbar            =
+ ==============================*/
+ .navbar-static{
+    position: fixed;
+    width: 100vw;
+    height: auto;
+    min-height: 80px;
+    padding: 15px;
+    background-color: transparent;
+    z-index: 300;
+ }
+ .navbar-brand{
+    padding-left: 45px;
+    padding-top: 15px;
+    width: 70px;
+    height: 150px;
+    box-sizing: content-box;
+    position: relative;
+ }
+ .navbar-brand svg{
+    width: 70px;
+    fill: rgba(255,255,255,1);
+ }
+ .navbar-brand svg path{
+    transform: scale(0.8, 0.8);
+ }
+ .navbar-brand-text{
+    position: absolute;
+    z-index: 400;
+    color: rgba(255,255,255,1);
+    font-weight: 700;
+    top: 50px;
+ }
+ .navbar-list{
+    margin-left: 70px;
+    padding: 15px 15px;
+    padding-right: 45px;
+ }
+ .navbar-item{
+    float: right;
+    padding: 0px 45px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+ }
+ .navbar-item:nth-child(2){
+    border-right: 1px dotted rgba(255,255,255,0.7);
+ }
+ .navbar-item:nth-child(3){
+    border-right: 1px dotted rgba(255,255,255,0.7);
+ }
+ 
+ 
 /* ===================================
  =            Transitions            =
  ===================================*/
