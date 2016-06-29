@@ -27,7 +27,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid" id="home-1">
+<div class="container-fluid" id="home-1" [ngClass]="{fullScreen: fullScreen}">
 	<div class="row">
 		<div class="col-xs-12 no-padding">
 			<div class="box-viewport filter-dark">
@@ -90,7 +90,7 @@
 							<div class="progress-title-container" *ngIf="!fullScreen">
 								<div class="progress-title" [ngClass]="{first: currentTitle === 5, second: currentTitle === 0, third: currentTitle === 1, fourth: currentTitle === 2, fifth: currentTitle === 3, off: currentTitle === 4}" id="progress-title-0" data-id="0" (click)="startFullScreenAnimation()" (mouseover)="startHoverAnimation()" (mouseleave)="endHoverAnimation()">
 									<span class="progress-title-top">
-										S&#243;ftware Eng&#237;neer
+										Software Eng&#237;neer
 										<!-- Experience & Sk&#237;lls -->
 									</span>
 									<span class="progress-title-bottom"></span>
@@ -105,14 +105,15 @@
 
 								<div class="progress-title off" id="progress-title-2" [ngClass]="{first: currentTitle === 1, second: currentTitle === 2, third: currentTitle === 3, fourth: currentTitle === 4, fifth: currentTitle === 5, off: currentTitle === 0}" (click)="startFullScreenAnimation()" (mouseover)="startHoverAnimation()" (mouseleave)="endHoverAnimation()">
 									<span class="progress-title-top">
-										Bi&#243; & C&#243;ntact
+										<!-- Bi&#243; & C&#243;ntact -->
+										Bi&#243;
 									</span>
 									<span class="progress-title-bottom"></span>
 								</div>
 
 								<div class="progress-title" id="progress-title-3" [ngClass]="{first: currentTitle === 2, second: currentTitle === 3, third: currentTitle === 4, fourth: currentTitle === 5, fifth: currentTitle === 0, off: currentTitle === 1}" (click)="startFullScreenAnimation()" (mouseover)="startHoverAnimation()" (mouseleave)="endHoverAnimation()">
 									<span class="progress-title-top">
-										S&#243;ftware Eng&#237;neer
+										Software Eng&#237;neer
 										<!-- Experience & Sk&#237;lls -->
 									</span>
 									<span class="progress-title-bottom"></span>
@@ -126,12 +127,21 @@
 
 								<div class="progress-title" id="progress-title-5" [ngClass]="{first: currentTitle === 4, second: currentTitle === 5, third: currentTitle === 0, fourth: currentTitle === 1, fifth: currentTitle === 2, off: currentTitle === 3}" (click)="startFullScreenAnimation()" (mouseover)="startHoverAnimation()" (mouseleave)="endHoverAnimation()">
 									<span class="progress-title-top">
-										Bi&#243; & C&#243;ntact
+										<!-- Bi&#243; & C&#243;ntact -->
+										Bi&#243;
 									</span>
 									<span class="progress-title-bottom"></span>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div id="slide-content" *ngIf="fullScreen">
+				<div class="slide-content-container">
+					<div class="placeholder"></div>
+					<div class="real">
+						<portfolio></portfolio>
 					</div>
 				</div>
 			</div>

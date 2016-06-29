@@ -8,6 +8,9 @@ body{
 a:focus, a:hover{
     text-decoration: none;
 }
+ul, li{
+    list-style: none;
+}
 ::-webkit-scrollbar{
     display: none !important;
 }
@@ -45,6 +48,9 @@ a:focus, a:hover{
     top: 0px;
     bottom: 0px;
     overflow: hidden;
+ }
+ .fullScreen .boxInner-viewport{
+    /*overflow: scroll;*/
  }
  .boxInner-viewport img{
     position: absolute;
@@ -166,10 +172,14 @@ a:focus, a:hover{
     width: 100%;
     height: 200%;
     position: absolute;
-
  }
  .slide-image-top .slide-image-container{
     transform: matrix(1, 0, 0, 1, -100, 0);
+    will-change: left;
+    -webkit-transform: translateZ(0);
+ }
+ .fullScreen .slide-image-top .slide-image-container{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;  
  }
  .slide-image-top .slide-image-container img{
     top: 0%;
@@ -183,6 +193,9 @@ a:focus, a:hover{
  }
  .slide-image-bottom .slide-image-container{
     transform: matrix(1, 0, 0, 1, 100, 0);
+ }
+ .fullScreen .slide-image-bottom .slide-image-container{
+    transform: matrix(1, 0, 0, 1, 0, 0) !important;
  }
  .slide-image-bottom .slide-image-container img{
     top: -100%;
@@ -206,6 +219,31 @@ a:focus, a:hover{
     left: 50%;
     transform: translateX(-50%);
  }
+ #slide-content{
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    overflow: scroll;
+    z-index: 299;
+ }
+ .slide-content-container{
+    height: auto;
+    position: absolute;
+ }
+ .slide-content-container .placeholder{
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+ }
+ .slide-content-container .real{
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    padding: 105px;
+    background-color: rgba(255,255,255, 0.95);
+ }
  .progress-bar-container{
     position: absolute;
     width: 100vw;
@@ -217,6 +255,14 @@ a:focus, a:hover{
     border-style: dotted;
     z-index: 200;
     -webkit-transform: translateZ(0);
+    -webkit-transition: opacity .5s linear;
+    -moz-transition: opacity .5s linear;
+    -o-transition: opacity .5s linear;
+    transition: opacity .5s linear;
+    opacity: 1;
+ }
+ .fullScreen .progress-bar-container{
+    opacity: 0;
  }
  .progress-bar{
     position: absolute;
@@ -258,7 +304,14 @@ a:focus, a:hover{
     width: 0%;
  }
  .progress-title-container{
-
+    -webkit-transition: opacity 1.5s linear;
+    -moz-transition: opacity 1.5s linear;
+    -o-transition: opacity 1.5s linear;
+    transition: opacity 1.5s linear;
+    opacity: 1;
+ }
+ .fullScreen .progress-title-container{
+    opacity: 0;
  }
  .progress-title{
     position: absolute;
@@ -289,7 +342,7 @@ a:focus, a:hover{
     left: 50%;
     right: auto;
     color: rgba(255,255,255,0.9);
-    font-size: 80px;
+    font-size: 70px;
  }
  .progress-title.third{
     left: 100%;
@@ -436,6 +489,7 @@ a:focus, a:hover{
     height: 150px;
     box-sizing: content-box;
     position: relative;
+    cursor: pointer;
  }
  .navbar-brand svg{
     width: 70px;
@@ -470,7 +524,169 @@ a:focus, a:hover{
     border-right: 1px dotted rgba(255,255,255,0.7);
  }
  
- 
+ /*===============================
+ =            Project            =
+ ===============================*/
+ .project-title{
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+ }
+ .project-role{
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 30px;
+ }
+ .project-description{
+    font-size: 25px;
+    line-height: 200%;
+    font-weight: 300;
+ }
+
+ .pright .browser.cond {
+     margin-left: 35px;
+ }
+
+ .preview .browser.cond {
+     /*width: 92.5%;*/
+     /*max-width: 722px;*/
+ }
+
+ .browser {
+     position: relative;
+     width: 100%;
+     border-radius: 4px 4px 2px 2px;
+     border: 1px solid #999;
+     background: #999;
+     overflow: hidden;
+     transition-duration: 0.5s;
+     transition-delay: 0s;
+ }
+ .browser .top {
+     position: relative;
+     width: 100%;
+     height: 40px;
+     border-radius: 3px 3px 0 0;
+     background: #fff;
+     box-shadow: inset 0 -1px #999;
+     transition-duration: 0.5s;
+     transition-delay: 0s;
+ }
+ .browser .top ul {
+     position: absolute;
+     top: 15px;
+     list-style: none;
+ }
+ .browser .top ul li {
+     float: left;
+     width: 9px;
+     height: 9px;
+     margin-right: 5px;
+     border-radius: 6px;
+     background: #999;
+     list-style: none;
+ }
+ .browser .top span {
+     position: absolute;
+     top: 6px;
+     bottom: 8px;
+     left: 102px;
+     right: 6px;
+     padding-left: 8px;
+     box-shadow: inset 0 0 0 1px #999;
+     border-radius: 2px;
+     line-height: 27px;
+     font-size: 12px;
+     font-family: "jaf-facitweb", sans-serif;
+     text-align: left;
+     color: #666;
+ }
+ .browser img {
+     width: 100%;
+     height: auto;
+     margin-bottom: -1px;
+     border-radius: 0 0 1px 1px;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+
+ .phone {
+     position: absolute;
+     z-index: 1;
+     top: 60px;
+     width: 30%;
+     padding: 0 10px;
+     border-radius: 15px;
+     border: 1px solid #999;
+     background: #fff;
+     text-align: center;
+     transition-duration: 0.6s;
+     transition-delay: 0s;
+ }
+ .phone .top {
+     position: relative;
+     width: 100%;
+     height: 54px;
+ }
+ .phone .top .camera {
+     top: 15px;
+ }
+ .phone .top .camera span {
+     width: 8px;
+     height: 8px;
+     border-radius: 4px;
+ }
+ .phone .top .speaker {
+     top: 32px;
+ }
+ .phone .top .speaker span {
+     width: 34px;
+     height: 4px;
+     border-radius: 2px;
+ }
+ .phone div {
+    position: absolute;
+    left: 0;
+    right: 0;
+ }
+ .phone img {
+     border: 1px solid #999;
+     width: 100%;
+     height: auto;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+ .phone .bottom {
+    position: relative;
+    width: 100%;
+    height: 54px;
+ }
+ .phone .bottom div {
+     top: 9px;
+ }
+ .phone .bottom div span {
+     width: 34px;
+     height: 34px;
+     border-radius: 17px;
+ }
+ .phone .bottom span {
+     border: 1px solid #999;
+     background: none;
+ }
+ .phone span {
+     display: block;
+     margin: 0 auto;
+     background: #999;
+ }
 /* ===================================
  =            Transitions            =
  ===================================*/
@@ -503,6 +719,11 @@ a:focus, a:hover{
  .size-fixed {
      width: 100%;
      height: 100%;
+ }
+ .clearfix:before,.clearfix:after {
+     content: "";
+     display: table;
+     clear: both;
  }
  /*===============================
  =            Buttons            =

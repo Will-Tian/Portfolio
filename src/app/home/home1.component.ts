@@ -1,12 +1,13 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ScrollService} from '../directive-services/scroll.service';
 import {NavComponent} from '../nav/nav.component';
+import {PortfolioComponent} from '../portfolio/portfolio.component';
 
 @Component({
   selector: 'home-1',
   template: require('./home1.component.html'),
   styles: [require('./home1.component.css')],
-  directives: [NavComponent]
+  directives: [NavComponent, PortfolioComponent]
 })
 
 export class Home1Component{
@@ -45,11 +46,12 @@ export class Home1Component{
 		window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
 	}
 	revertFullScreenAnimation(){
+		if(!this.fullScreen){return;}
 		var animationLayer = $('.js-shape');
 		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();}.bind(this),0);
-		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),1950);
-		window.setTimeout(function(){this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1300);
-		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);this._removeAnimationLayerStepTwo(animationLayer)}.bind(this), 650);
+		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),2000);
+		window.setTimeout(function(){this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1400);
+		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);this._removeAnimationLayerStepTwo(animationLayer)}.bind(this), 700);
 		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 0);	
 	}
 
