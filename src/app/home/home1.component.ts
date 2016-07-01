@@ -2,12 +2,13 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ScrollService} from '../directive-services/scroll.service';
 import {NavComponent} from '../nav/nav.component';
 import {PortfolioComponent} from '../portfolio/portfolio.component';
+import {ExperienceComponent} from '../experience/experience.component';
 
 @Component({
   selector: 'home-1',
   template: require('./home1.component.html'),
   styles: [require('./home1.component.css')],
-  directives: [NavComponent, PortfolioComponent]
+  directives: [NavComponent, PortfolioComponent, ExperienceComponent]
 })
 
 export class Home1Component{
@@ -42,16 +43,17 @@ export class Home1Component{
 		var animationLayer = $('.js-shape');
 		this.fullScreen = true;
 		window.setTimeout(function(){this._animationLayerStepTwo(animationLayer)}.bind(this), 0);
-		window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 650);
+		window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 600);
 		window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
+		window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
 	}
 	revertFullScreenAnimation(){
 		if(!this.fullScreen){return;}
 		var animationLayer = $('.js-shape');
-		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();}.bind(this),0);
-		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),2000);
-		window.setTimeout(function(){this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1400);
-		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);this._removeAnimationLayerStepTwo(animationLayer)}.bind(this), 700);
+		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),0);
+		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),1900);
+		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1400);
+		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 700);
 		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 0);	
 	}
 
@@ -62,6 +64,26 @@ export class Home1Component{
 	endHoverAnimation(){
 		var animationLayer = $('.js-shape');
 		window.setTimeout(function(){this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 0);
+	}
+
+	private _attachScrollHandler(){
+	    $('#slide-content').on('scroll', this._scrollHandler.bind(this));
+	}
+
+	private _detachScrollHandler(){
+	    $('#slide-content').off('scroll', this._scrollHandler);
+	}
+
+	private _scrollHandler(){
+		var scrollTop = $('#slide-content').scrollTop();
+		var navbar = $('.navbar-static');
+		if(scrollTop < 100){
+			if(navbar.hasClass('minimized')){navbar.removeClass('minimized')};
+			return;
+		}
+		if(scrollTop > 0){
+			if(!navbar.hasClass('minimized')){navbar.addClass('minimized')};
+		} 
 	}
 
 	private _animationLayerStepOne(animationLayer){

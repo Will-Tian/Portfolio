@@ -141,7 +141,8 @@
 				<div class="slide-content-container">
 					<div class="placeholder"></div>
 					<div class="real">
-						<portfolio></portfolio>
+						<experience *ngIf="currentSlide === 0"></experience>
+						<portfolio *ngIf="currentSlide === 1"></portfolio>
 					</div>
 				</div>
 			</div>

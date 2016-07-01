@@ -1,0 +1,121 @@
+/*matching-dark-green: rgba(28, 39, 45, 0.95);*/
+/*matching-light-green: rgba(101, 171, 123, 0.95);*/
+
+#experience{
+	background-color: rgba(255,255,255,0.9);
+}
+.experience{
+	/*background-color: rgba(51, 35, 22, 0.9);*/
+	/*background-color: rgba(84, 177, 219, 0.9);*/
+	/*background-color: rgba(255,255,255,1);*/
+	/*background-color: rgba(28, 39, 45, 0.9);*/
+	background-color: rgba(26, 55, 66, 0.9);
+}
+.experience .title{
+	/*color: rgba(84, 177, 219, 0.9) !important;*/
+	/*color: rgba(51, 35, 22, 0.9) !important;*/
+	color: rgba(255, 255, 255, 1) !important;
+	/*color: rgba(101, 171, 123, 0.95);*/
+}
+.experience .title:after{
+	/*background-color: rgba(101, 171, 123, 0.95);*/
+	background-color: rgba(255, 255, 255, 1) !important;
+}
+.experience .arrow{
+	/*border-top: 27px solid rgba(51, 35, 22, 0.9) !important;*/
+	/*border-top: 27px solid rgba(84, 177, 219, 0.9) !important;*/
+	/*border-top: 27px solid rgba(255,255,255,1) !important;*/
+	/*border-top: 27px solid rgba(28, 39, 45, 0.9) !important;*/
+	border-top: 27px solid rgba(26, 55, 66, 0.9) !important;
+}
+
+.skills{
+	background-color: rgba(255,255,255, 1);
+}
+.skills .section-header-content{
+	margin-top: 60px;
+}
+.skills .arrow{
+	border-top: 27px solid rgba(255,255,255, 1) !important;
+}
+
+.skills .section-header-skills{
+   color: rgba(26, 55, 66, 0.9);
+   text-align: center;
+}
+.skills .section-header-skills i{
+   font-size: 65px;
+}
+.skills .skills-title{
+   font-size: 25px;
+   color: rgba(26, 55, 66, 0.9);
+   font-weight: 300;
+   margin-bottom: 15px;
+}
+.skills .skill-items{
+   font-size: 16px;
+   color: rgba(26, 55, 66, 0.9);
+}
+.skill-hours{
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.wrap{
+	background-color: rgba(26, 55, 66, 0.9);
+}
+
+.wrap .title{
+	color: rgba(255, 255, 255, 1) !important;
+}
+.wrap .title:after{
+	background-color: rgba(255, 255, 255, 1) !important;	
+}
+
+.wrap .section-intro-text{
+	color: rgba(255, 255, 255, 1) !important;
+}
+.wrap .project-text{
+	color: rgba(255, 255, 255, 1) !important;
+}
+.wrap .section-header-content{
+	margin-top: 60px;
+}
+.wrap .skills-title{
+	margin-top: 15px;
+}
+
+#experience .project-description{
+	font-size: 18px;
+}
+
+.timeline-container{
+	position: absolute;
+	height: 100%;
+	color: white;
+}
+.timeline-marker{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.timeline-marker i{
+	font-size: 65px;
+} 
+.timeline-marker-text{
+	font-size: 18px;
+	font-weight: 800;
+	text-align: center;
+	position: absolute;
+    top: 50%;
+    width: 200px;
+    margin-top: 40px;
+    margin-left: 18px;
+    transform: translateX(-50%);
+}
+.timeline{
+	height: 100%;
+	width: 1px;
+	border-left: 1px dashed white;
+	margin-left: 18px;
+}
