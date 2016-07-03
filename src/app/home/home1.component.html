@@ -10,17 +10,17 @@
 		</div>
 	</div>
 	<div class="navbar-list">
-		<div class="navbar-item">
+		<div class="navbar-item" (click)="jumpToSlide(2)">
 			<span>
 				Bi&#243;
 			</span>
 		</div>
-		<div class="navbar-item">
+		<div class="navbar-item" (click)="jumpToSlide(1)">
 			<span>
 				Portfoli&#243;
 			</span>
 		</div>
-		<div class="navbar-item">
+		<div class="navbar-item" (click)="jumpToSlide(0)">
 			<span>
 				Experience & Sk&#237;lls
 			</span>
@@ -143,6 +143,7 @@
 					<div class="real">
 						<experience *ngIf="currentSlide === 0"></experience>
 						<portfolio *ngIf="currentSlide === 1"></portfolio>
+						<bio *ngIf="currentSlide === 2"></bio>
 					</div>
 				</div>
 			</div>

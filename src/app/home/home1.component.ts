@@ -3,12 +3,13 @@ import {ScrollService} from '../directive-services/scroll.service';
 import {NavComponent} from '../nav/nav.component';
 import {PortfolioComponent} from '../portfolio/portfolio.component';
 import {ExperienceComponent} from '../experience/experience.component';
+import {BioComponent} from '../bio/bio.component';
 
 @Component({
   selector: 'home-1',
   template: require('./home1.component.html'),
   styles: [require('./home1.component.css')],
-  directives: [NavComponent, PortfolioComponent, ExperienceComponent]
+  directives: [NavComponent, PortfolioComponent, ExperienceComponent, BioComponent]
 })
 
 export class Home1Component{
@@ -46,6 +47,7 @@ export class Home1Component{
 		window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 600);
 		window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
 		window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
+		// window.setTimeout(function(){this._scrollSlideToView()}.bind(this), 2100);
 	}
 	revertFullScreenAnimation(){
 		if(!this.fullScreen){return;}
@@ -66,6 +68,12 @@ export class Home1Component{
 		window.setTimeout(function(){this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 0);
 	}
 
+	jumpToSlide(num){
+		if(!this.fullScreen){return;}
+		this.currentSlide = num;
+		this._slideColorTransition();
+	}
+
 	private _attachScrollHandler(){
 	    $('#slide-content').on('scroll', this._scrollHandler.bind(this));
 	}
@@ -84,6 +92,11 @@ export class Home1Component{
 		if(scrollTop > 0){
 			if(!navbar.hasClass('minimized')){navbar.addClass('minimized')};
 		} 
+	}
+
+	private _scrollSlideToView(){
+		var top = $(window).height();
+		$('#slide-content').animate({scrollTop: top},800)
 	}
 
 	private _animationLayerStepOne(animationLayer){
