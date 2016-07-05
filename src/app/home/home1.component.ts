@@ -46,17 +46,21 @@ export class Home1Component{
 		window.setTimeout(function(){this._animationLayerStepTwo(animationLayer)}.bind(this), 0);
 		window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 600);
 		window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
+		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 1200);
+		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'active');}.bind(this), 1400);
 		window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
-		// window.setTimeout(function(){this._scrollSlideToView()}.bind(this), 2100);
+		// window.setTimeout(function(){this.scrollSlideToView()}.bind(this), 2100);
 	}
 	revertFullScreenAnimation(){
 		if(!this.fullScreen){return;}
+		this._toggleLayer('.scroller-container', 'active');
+		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 200);
 		var animationLayer = $('.js-shape');
-		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),0);
+		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
 		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),1900);
-		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1400);
-		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 700);
-		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 0);	
+		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1600);
+		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 900);
+		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 200);	
 	}
 
 	startHoverAnimation(){
@@ -69,9 +73,19 @@ export class Home1Component{
 	}
 
 	jumpToSlide(num){
-		if(!this.fullScreen){return;}
+		if(!this.fullScreen){
+			this.currentSlide = num;
+			this._slideColorTransition();
+			this.startFullScreenAnimation();
+			return;
+		}
 		this.currentSlide = num;
 		this._slideColorTransition();
+	}
+
+	scrollSlideToView(){
+		var top = $(window).height();
+		$('#slide-content').animate({scrollTop: top},1000)
 	}
 
 	private _attachScrollHandler(){
@@ -85,18 +99,20 @@ export class Home1Component{
 	private _scrollHandler(){
 		var scrollTop = $('#slide-content').scrollTop();
 		var navbar = $('.navbar-static');
-		if(scrollTop < 100){
+		var scroller = $('.scroller-container');
+		if(scrollTop <= 0){
 			if(navbar.hasClass('minimized')){navbar.removeClass('minimized')};
+			if(!scroller.hasClass('active')){scroller.addClass('active');scroller.addClass('slide')};
 			return;
 		}
 		if(scrollTop > 0){
 			if(!navbar.hasClass('minimized')){navbar.addClass('minimized')};
+			if(scroller.hasClass('active')){scroller.removeClass('active');scroller.removeClass('slide')};
 		} 
 	}
 
-	private _scrollSlideToView(){
-		var top = $(window).height();
-		$('#slide-content').animate({scrollTop: top},800)
+	private _toggleLayer(layer, className){
+		$(layer).toggleClass(className);
 	}
 
 	private _animationLayerStepOne(animationLayer){
