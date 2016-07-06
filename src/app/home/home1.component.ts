@@ -114,14 +114,17 @@ export class Home1Component{
 		var scrollTop = $('#slide-content').scrollTop();
 		var navbar = $('.navbar-static');
 		var scroller = $('.scroller-container');
+		var nav = $('.home-nav-container');
 		if(scrollTop <= 0){
 			if(navbar.hasClass('minimized')){navbar.removeClass('minimized')};
 			if(!scroller.hasClass('active')){scroller.addClass('active');scroller.addClass('slide')};
+			if(nav.hasClass('slide')){nav.removeClass('slide')};
 			return;
 		}
 		if(scrollTop > 0){
 			if(!navbar.hasClass('minimized')){navbar.addClass('minimized')};
 			if(scroller.hasClass('active')){scroller.removeClass('active');scroller.removeClass('slide')};
+			if(!nav.hasClass('slide')){nav.addClass('slide')};
 		} 
 	}
 
