@@ -17,8 +17,9 @@ export class Home1Component{
 	slideNum = 2;
 	currentTitle = 0;
 	titleNum = 5;
-	slideColors = ['rgba(85, 178, 220, 0.95)', 'rgba(48, 33, 19, 0.95)', 'rgba(101, 171, 123, 0.95)'];
-	backgroundColors = ['rgba(46, 32, 18, 1)', 'rgba(72, 48, 24, 1)', 'rgba(28, 39, 44, 1)'];
+	slideColors = ['rgba(32, 100, 146, .95)', 'rgba(26, 55, 66, 0.95)', 'rgba(46, 53, 46,0.95)'];
+	backgroundColors = ['rgba(32, 100, 146, .95)', '#105db9', 'rgba(30, 67, 67,0.6)'];
+	filterColors = ['rgba(85, 178, 220, 0.35)'];
 	fullScreen = false;
 	private _slideAnimationInterval: any;
 	private _progressBarInterval: any;
@@ -57,9 +58,9 @@ export class Home1Component{
 		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 200);
 		var animationLayer = $('.js-shape');
 		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
-		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),1900);
-		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1600);
-		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 900);
+		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),2000);
+		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1700);
+		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 1000);
 		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 200);	
 	}
 
@@ -114,17 +115,20 @@ export class Home1Component{
 		var scrollTop = $('#slide-content').scrollTop();
 		var navbar = $('.navbar-static');
 		var scroller = $('.scroller-container');
+		var progressTitle = $('.progress-title');
 		var nav = $('.home-nav-container');
 		if(scrollTop <= 0){
 			if(navbar.hasClass('minimized')){navbar.removeClass('minimized')};
 			if(!scroller.hasClass('active')){scroller.addClass('active');scroller.addClass('slide')};
 			if(nav.hasClass('slide')){nav.removeClass('slide')};
+			if(progressTitle.hasClass('minimized')){progressTitle.removeClass('minimized')};
 			return;
 		}
 		if(scrollTop > 0){
 			if(!navbar.hasClass('minimized')){navbar.addClass('minimized')};
 			if(scroller.hasClass('active')){scroller.removeClass('active');scroller.removeClass('slide')};
 			if(!nav.hasClass('slide')){nav.addClass('slide')};
+			if(!progressTitle.hasClass('minimized')){progressTitle.addClass('minimized')};
 		} 
 	}
 

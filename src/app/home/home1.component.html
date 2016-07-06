@@ -11,23 +11,23 @@
 	</div>
 	<div class="navbar-list">
 		<div class="navbar-item" (click)="jumpToSlide(2)">
-			<span class="text-decorator">
+			<span class="text-decorator" [ngClass]="{active: currentSlide === 2 && fullScreen}">
 				Bi&#243;
 			</span>
 		</div>
 		<div class="navbar-item" (click)="jumpToSlide(1)">
-			<span class="text-decorator">
+			<span class="text-decorator" [ngClass]="{active: currentSlide === 1 && fullScreen}">
 				Portfoli&#243;
 			</span>
 		</div>
 		<div class="navbar-item" (click)="jumpToSlide(0)">
-			<span class="text-decorator">
+			<span class="text-decorator" [ngClass]="{active: currentSlide === 0 && fullScreen}">
 				Experience & Sk&#237;lls
 			</span>
 		</div>
 	</div>
 </div>
-<div class="container-fluid" id="home-1" [ngClass]="{fullScreen: fullScreen}">
+<div class="container-fluid" id="home-1" [ngClass]="{fullScreen: fullScreen, slide1: currentSlide===0, slide2: currentSlide === 1, slide3: currentSlide === 2}">
 	<div class="row">
 		<div class="col-xs-12 no-padding">
 			<div class="box-viewport filter-dark">
@@ -43,51 +43,51 @@
 								c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
 						</mask>
 					</defs>
-					<rect id="js-home--mask" width="1596" height="1000" style="mask: url(&quot;#js-home--shapes&quot;); fill: rgba(85, 178, 220, 0.95);"></rect>
+					<rect id="js-home--mask" width="1596" height="1000" style="mask: url(&quot;#js-home--shapes&quot;); fill: rgba(32, 100, 146, .95);"></rect>
 				</svg>
 				<div class="boxInner-viewport">
 					<div class="slide" id="slide-0" [ngClass]="{current: currentSlide === 0}">
 						<div class="slide-image-top">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo.jpg">	
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Software_Engineer.png">	
 							</div>
 						</div>
 						<div class="slide-image-bottom">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo.jpg">			
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Software_Engineer.png">			
 							</div>
 						</div>
 					</div>	
 					<div class="slide" id="slide-1" [ngClass]="{current: currentSlide === 1}">
 						<div class="slide-image-top">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_2.jpg">	
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Portfolio.png">	
 							</div>
 						</div>
 						<div class="slide-image-bottom">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_2.jpg">			
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Portfolio.png">			
 							</div>
 						</div>
 					</div>
 					<div class="slide" id="slide-2" [ngClass]="{current: currentSlide === 2}">
 						<div class="slide-image-top">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_3.jpg">	
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Bio.png">	
 							</div>
 						</div>
 						<div class="slide-image-bottom">
 							<div class="slide-image-container">
-								<img class="box-img size-fixed img-render-transition" src="../../../public/images/interesting_logo_3.jpg">			
+								<img class="box-img size-fixed img-render-transition" src="../../../public/images/Bio.png">			
 							</div>
 						</div>
 					</div>
 					<div class="boxInner-content">
-						<div class="progress-bar-container" *ngIf="!fullScreen">
+						<div class="progress-bar-container">
 							<div class="progress-bar" id="progress-bar"></div>
 						</div>
 						<div class="col-xs-12 no-padding home-content home-1-content">
-							<div class="progress-title-container" *ngIf="!fullScreen">
+							<div class="progress-title-container">
 								<div class="progress-title" [ngClass]="{first: currentTitle === 5, second: currentTitle === 0, third: currentTitle === 1, fourth: currentTitle === 2, fifth: currentTitle === 3, off: currentTitle === 4}" id="progress-title-0" data-id="0" (click)="startFullScreenAnimation()" (mouseover)="startHoverAnimation()" (mouseleave)="endHoverAnimation()">
 									<span class="progress-title-top">
 										Software Eng&#237;neer

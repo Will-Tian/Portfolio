@@ -390,7 +390,7 @@ ul, li{
     animation: delayed-opacity 2s;
  }
  .fullScreen .progress-bar-container{
-    opacity: 0;
+    /*opacity: 0;*/
  }
  .progress-bar{
     position: absolute;
@@ -440,7 +440,7 @@ ul, li{
     animation: delayed-opacity 2s;
  }
  .fullScreen .progress-title-container{
-    opacity: 0;
+    /*opacity: 0;*/
  }
  .progress-title{
     position: absolute;
@@ -448,10 +448,10 @@ ul, li{
     right: auto;
     transform: translate(-50%, -50%);
     margin-top: -15px;
-    font-size: 55px;
+    font-size: 50px;
     width: 100vw;
     text-align: center;
-    font-weight: 700;
+    font-weight: 900;
     color: rgba(255,255,255,0.25);
     z-index: 300;
     will-change: left, font-size;
@@ -460,6 +460,17 @@ ul, li{
     -o-transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
     transition: left 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
  }
+ .progress-title.minimized{
+    opacity: 0;
+    animation: deferred-opacity 2s;
+    /*transform: translate(-50%, -200%);*/
+ }
+ .fullScreen .progress-title{
+    -webkit-transition: left 400ms cubic-bezier (0.77, 0, 0.175, 1), color 400ms cubic-bezier (0.77, 0, 0.175, 1), font-size 400ms cubic-bezier (0.77, 0, 0.175, 1), opacity 0ms cubic-bezier (0.77, 0, 0.175, 1), transform 600ms cubic-bezier (0.77, 0, 0.175, 1);
+    -moz-transition: left 400ms cubic-bezier (0.77, 0, 0.175, 1), color 400ms cubic-bezier (0.77, 0, 0.175, 1), font-size 400ms cubic-bezier (0.77, 0, 0.175, 1),  opacity 0ms cubic-bezier (0.77, 0, 0.175, 1), transform 600ms cubic-bezier (0.77, 0, 0.175, 1);
+    -o-transition: left 400ms cubic-bezier (0.77, 0, 0.175, 1), color 400ms cubic-bezier (0.77, 0, 0.175, 1), font-size 400ms cubic-bezier (0.77, 0, 0.175, 1),  opacity 0ms cubic-bezier (0.77, 0, 0.175, 1), transform 600ms cubic-bezier (0.77, 0, 0.175, 1);
+    transition: left 400ms cubic-bezier (0.77, 0, 0.175, 1), color 400ms cubic-bezier (0.77, 0, 0.175, 1), font-size 400ms cubic-bezier (0.77, 0, 0.175, 1),  opacity 0ms cubic-bezier (0.77, 0, 0.175, 1), transform 600ms cubic-bezier (0.77, 0, 0.175, 1);
+ }
  .progress-title:hover{
     cursor: pointer;
  }
@@ -467,23 +478,41 @@ ul, li{
     left: 0%;
     right: auto;
  }
+ .fullScreen .progress-title.first{
+    /*opacity: 0;*/
+    /*animation: deferred-opacity 1s;*/
+ }
  .progress-title.second{
     left: 50%;
     right: auto;
     color: rgba(255,255,255,0.9);
-    font-size: 70px;
+    font-size: 80px;
+ }
+ .fullScreen .progress-title.second{
+    /*animation: delayed-opacity 1s;*/
+    /*transition-delay : .5s;*/
  }
  .progress-title.third{
     left: 100%;
     right: auto;
  }
+ .fullScreen .progress-title.third{
+    /*opacity: 0;*/
+    /*animation: deferred-opacity 1s;*/
+ }
  .progress-title.fourth{
     left: 150%;
     right: auto;
  }
+ .fullScreen .progress-title.fourth{
+    /*opacity: 0;*/
+ }
  .progress-title.fifth{
     left: 200%;
     right: auto;
+ }
+ .fullScreen .progress-title.fifth{
+    /*opacity: 0;*/
  }
  .progress-title.off{
     right: -100%;
@@ -491,6 +520,9 @@ ul, li{
     transform: translate(-100%, -50%);
     color: rgba(255,255,255,0);  
     opacity: 0;
+ }
+ .fullScreen .progress-title.off{
+    /*opacity: 0;*/
  }
  #progress-title-0.progress-title.second{
  }
@@ -535,7 +567,7 @@ ul, li{
     background-color: rgba(19, 143, 84, 1);
  }
  #home-2 .filter-dark:after{
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0);
  }
  .home-3-content .info-panel{
     background-color: rgba(152, 42, 42, 1);
@@ -732,7 +764,7 @@ ul, li{
  }
 
  .navbar-item .text-decorator:hover:before,
- .navbar-item .text-decorator:focus:before {
+ .navbar-item .text-decorator:focus:before, .navbar-item .text-decorator.active:before{
       visibility: visible;
       height: 2px !important;
        transform: scaleX(1);
@@ -750,11 +782,11 @@ ul, li{
     -moz-transition: opacity .8s cubic-bezier(0.77, 0, 0.175, 1), transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     -o-transition: opacity .8s cubic-bezier(0.77, 0, 0.175, 1), transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     transition: opacity .8s cubic-bezier(0.77, 0, 0.175, 1), transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    z-index: 0;
+    z-index: 298;
  }
  .scroller-container.active{
     opacity: 1;
-    z-index: 500;
+    z-index: 300;
  }
  .scroller-container.slide{
     transform: translate(-50%, -100%);
@@ -828,6 +860,9 @@ ul, li{
     z-index: -1;
     color: rgba(255,255,255,0.3);
  }
+ .fullScreen .home-nav-current{
+    color: rgba(255,255,255,0.6);
+ }
  .current-number{
     display: inline-block;
     opacity: 0;
@@ -876,6 +911,15 @@ ul, li{
     }
     80%{
         opacity: 1;
+    }
+ }
+
+ @keyframes deferred-opacity {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
     }
  }
  
@@ -1353,7 +1397,28 @@ ul, li{
     top: -1px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(13, 9, 26, 0);
+    will-change: background-color;
+    background-color: rgba(85, 178, 220, 0.35);
+    transition: background-color 1s ease;
+    -webkit-transition: background-color 1s ease;
+    -moz-transition: background-color 1s ease;
+    -o-transition: background-color 1s ease;
+ }
+
+ .slide1 .filter-dark:after{
+    background-color: rgba(105, 178, 220, 0.35);
+ }
+
+ .slide2 .filter-dark:after{
+    /*background-color: rgba(85, 178, 220, 0.35);*/
+    background-color: rgba(0,0,0,0.35);
+ }
+
+ .slide3 .filter-dark:after{
+    background-color: rgba(30, 67, 67,0.4);
+ }
+ .slide3.fullScreen .filter-dark:after{
+    background-color: rgba(30, 67, 67,0.6);
  }
 
  /*================================
