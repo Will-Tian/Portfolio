@@ -85,7 +85,21 @@ export class Home1Component{
 
 	scrollSlideToView(){
 		var top = $(window).height();
-		$('#slide-content').animate({scrollTop: top},1000)
+		$('#slide-content').animate({scrollTop: top}, 500, 'easeInOutCubic')
+	}
+
+	previousSlide(){
+		this.cleanUp();
+		this._slideTransitionReverse();
+		this._progressTitleTransitionReverse();
+		this._slideColorTransition();
+	}
+
+	nextSlide(){
+		this.cleanUp();
+		this._slideTransition();
+		this._progressTitleTransition();
+		this._slideColorTransition();
 	}
 
 	private _attachScrollHandler(){
@@ -154,6 +168,21 @@ export class Home1Component{
 		this.currentSlide += 1;
 	}
 
+	private _slideTransitionReverse(){
+		this.currentSlide -= 1;
+		if(this.currentSlide < 0){this.currentSlide = this.slideNum;}
+	}
+
+	private _progressTitleTransition(){
+		if(this.currentTitle >= this.titleNum){this.currentTitle = 0;return;}
+		this.currentTitle += 1;
+	}
+
+	private _progressTitleTransitionReverse(){
+		this.currentTitle -= 1;
+		if(this.currentTitle < 0){this.currentTitle = this.titleNum;return;}
+	}
+
 	private _slideColorTransition(){
 		var index = this.currentSlide;
 		var color = this.slideColors[index];
@@ -162,6 +191,7 @@ export class Home1Component{
 		$('#home-1 .boxInner-viewport').css('background-color', backgroundColor);
 
 	}
+
 	private _timer(t){
 		return new Promise(function(resolve, reject) {
 		    setTimeout(function() {
