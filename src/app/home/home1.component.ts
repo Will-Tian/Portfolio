@@ -20,18 +20,24 @@ export class Home1Component{
 	slideColors = ['rgba(32, 100, 146, .95)', 'rgba(26, 55, 66, 0.95)', 'rgba(46, 53, 46,0.95)'];
 	backgroundColors = ['rgba(32, 100, 146, .95)', '#105db9', 'rgba(30, 67, 67,0.6)'];
 	filterColors = ['rgba(85, 178, 220, 0.35)'];
-	fullScreen = false;
+	fullScreen = true;
 	private _slideAnimationInterval: any;
 	private _progressBarInterval: any;
 	private _progressTitleInterval: any;
 
-	ngOnInit() { this.initialize(); }
+	ngOnInit() { this.initialize(true); }
 	ngOnDestroy() { this.cleanUp(); }
 
-	initialize() {
-		this._startSlideAnimationInterval();
-		this._startProgressBarInterval();
-		this._startProgressTitleInterval();
+	initialize(first) {
+		if(first){
+			window.setTimeout(function(){
+				this.revertFullScreenAnimation();
+			}.bind(this), 1000)
+		} else {
+			this._startSlideAnimationInterval();
+			this._startProgressBarInterval();
+			this._startProgressTitleInterval();
+		}
 	}
 
 	cleanUp() {
@@ -41,16 +47,20 @@ export class Home1Component{
 	}	
 
 	startFullScreenAnimation(){
-		this.cleanUp();
-		var animationLayer = $('.js-shape');
-		this.fullScreen = true;
-		window.setTimeout(function(){this._animationLayerStepTwo(animationLayer)}.bind(this), 0);
-		window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 600);
-		window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
-		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 1200);
-		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'active');}.bind(this), 1400);
-		window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
-		// window.setTimeout(function(){this.scrollSlideToView()}.bind(this), 2100);
+		if(!this.fullScreen){
+			this.cleanUp();
+			var animationLayer = $('.js-shape');
+			this.fullScreen = true;
+			window.setTimeout(function(){this._animationLayerStepTwo(animationLayer)}.bind(this), 0);
+			window.setTimeout(function(){this._animationLayerStepThree(animationLayer)}.bind(this), 600);
+			window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
+			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 1200);
+			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'active');}.bind(this), 1400);
+			window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
+			// window.setTimeout(function(){this.scrollSlideToView()}.bind(this), 2100);
+		} else {
+			this.revertFullScreenAnimation();
+		}
 	}
 	revertFullScreenAnimation(){
 		if(!this.fullScreen){return;}
@@ -58,7 +68,7 @@ export class Home1Component{
 		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 200);
 		var animationLayer = $('.js-shape');
 		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
-		window.setTimeout(function(){this.fullScreen = false;this.initialize();}.bind(this),2000);
+		window.setTimeout(function(){this.fullScreen = false;this.initialize(false);}.bind(this),2000);
 		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1700);
 		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 1000);
 		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 200);	
@@ -156,9 +166,11 @@ export class Home1Component{
 	}
 	private _animationLayerStepFour(animationLayer){
 		animationLayer.addClass('fourth');
+		$('.slide-image-container').addClass('zoom');
 	}
 	private _removeAnimationLayerStepFour(animationLayer){
-		animationLayer.removeClass('fourth');	
+		animationLayer.removeClass('fourth');
+		$('.slide-image-container').removeClass('zoom');	
 	}
 
 	private _startSlideAnimationInterval(){
