@@ -67,7 +67,7 @@ export class Home1Component{
 		this._toggleLayer('.scroller-container', 'active');
 		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 200);
 		var animationLayer = $('.js-shape');
-		window.setTimeout(function(){this.currentTitle = 0;this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
+		window.setTimeout(function(){if(this.currentTitle <= 2){this.currentTitle = 0;} else { this.currentTitle = 3}this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
 		window.setTimeout(function(){this.fullScreen = false;this.initialize(false);}.bind(this),2000);
 		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1700);
 		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 1000);
