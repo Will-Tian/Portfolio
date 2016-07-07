@@ -87,7 +87,6 @@ ul, li{
     top: 0%;
     height: 115%;
     width: 100vw;
-    will-change: top;
     -webkit-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -moz-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -o-transition: top 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94), max-height 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -151,7 +150,6 @@ ul, li{
     max-height: 100vh;
     overflow: hidden;
  	-webkit-transform: translateZ(0);
-    will-change: max-height, top;
     background-color: black;
     max-height: 0vh;
  }
@@ -212,7 +210,6 @@ ul, li{
  }
  .slide-image-top .slide-image-container{
     transform: matrix(1, 0, 0, 1, -100, 0);
-    will-change: left;
     /*-webkit-transform: translateZ(0);*/
  }
  .fullScreen .slide-image-top .slide-image-container{
@@ -413,7 +410,6 @@ ul, li{
     border-color: rgba(255, 255, 255, .7);
     border-style: solid;
     width: 0%;
-    will-change: width;
     -webkit-transition: width 4s linear;
     -moz-transition: width 4s linear;
     -o-transition: width 4s linear;
@@ -460,7 +456,6 @@ ul, li{
     text-align: center;
     font-weight: 900;
     z-index: 300;
-    will-change: left, font-size;
     transform: ;
     -webkit-transition: left 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
     -moz-transition: left 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -556,6 +551,7 @@ ul, li{
  /*red: rgba(152, 42, 42, 0.9);*/
  /*orange: rgba(242, 153, 46, 0.9);*/
  /*grey-blue: rgb(192, 202, 204);*/
+ /*medium-blue: rgba(32, 100, 146, .95)*/
  /*matching-brown: rgba(48, 33, 19, 0.95)*/
  /*matching-blue: rgba(85, 178, 220, 0.95)*/
  /*matching-yellow: rgba(203, 193, 77, 0.95);*/
@@ -758,7 +754,7 @@ ul, li{
     position: relative;
     /*border-bottom: 1px solid #5e55a8;*/
     padding: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
  }
  .navbar-item .text-decorator:before {
    content: "";
@@ -879,7 +875,6 @@ ul, li{
     opacity: 0;
     position: absolute;
     top: -100%;
-    will-change: top, opacity;
     -webkit-transition: opacity .4s cubic-bezier(0.77, 0, 0.175, 1), transform .75s cubic-bezier(0.77, 0, 0.175, 1), top .75s cubic-bezier(0.77, 0, 0.175, 1);
     -moz-transition: opacity .4s cubic-bezier(0.77, 0, 0.175, 1), transform .75s cubic-bezier(0.77, 0, 0.175, 1), top .75s cubic-bezier(0.77, 0, 0.175, 1);
     -o-transition: opacity .4s cubic-bezier(0.77, 0, 0.175, 1), transform .75s cubic-bezier(0.77, 0, 0.175, 1), top .75s cubic-bezier(0.77, 0, 0.175, 1);
@@ -1408,7 +1403,6 @@ ul, li{
     top: -1px;
     width: 100vw;
     height: 100vh;
-    will-change: background-color;
     background-color: rgba(85, 178, 220, 0.35);
     transition: background-color 1s ease;
     -webkit-transition: background-color 1s ease;
