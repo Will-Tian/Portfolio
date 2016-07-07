@@ -86,11 +86,13 @@ export class Home1Component{
 	jumpToSlide(num){
 		if(!this.fullScreen){
 			this.currentSlide = num;
+			this.currentTitle = num;
 			this._slideColorTransition();
 			this.startFullScreenAnimation();
 			return;
 		}
 		this.currentSlide = num;
+		this.currentTitle = num;
 		this._slideColorTransition();
 	}
 
