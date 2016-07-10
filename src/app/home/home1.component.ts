@@ -17,10 +17,11 @@ export class Home1Component{
 	slideNum = 2;
 	currentTitle = 0;
 	titleNum = 5;
-	slideColors = ['rgba(69, 159, 211,0.95)', 'rgba(26, 55, 66, 0.95)', 'rgba(46, 53, 46,0.95)'];
+	slideColors = ['rgba(152, 202, 230,0.98)', 'rgba(26, 55, 66, 0.9)', 'rgba(46, 53, 46,0.98)'];
 	backgroundColors = ['rgba(32, 100, 146, .95)', '#105db9', 'rgba(30, 67, 67,0.6)'];
 	filterColors = ['rgba(85, 178, 220, 0.35)'];
 	fullScreen = true;
+	private _animating = false;
 	private _slideAnimationInterval: any;
 	private _progressBarInterval: any;
 	private _progressTitleInterval: any;
@@ -47,7 +48,9 @@ export class Home1Component{
 	}	
 
 	startFullScreenAnimation(){
+		if(this._animating){return;}
 		if(!this.fullScreen){
+			this._animating = true;
 			this.cleanUp();
 			var animationLayer = $('.js-shape');
 			this.fullScreen = true;
@@ -56,19 +59,20 @@ export class Home1Component{
 			window.setTimeout(function(){this._animationLayerStepFour(animationLayer)}.bind(this), 1400);
 			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 1200);
 			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'active');}.bind(this), 1400);
-			window.setTimeout(function(){this._attachScrollHandler()}.bind(this), 2000);
+			window.setTimeout(function(){this._attachScrollHandler();this._animating = false;}.bind(this), 2000);
 			// window.setTimeout(function(){this.scrollSlideToView()}.bind(this), 2100);
 		} else {
 			this.revertFullScreenAnimation();
 		}
 	}
 	revertFullScreenAnimation(){
-		if(!this.fullScreen){return;}
+		if(!this.fullScreen || this._animating){return;}
+		this._animating = true;
 		this._toggleLayer('.scroller-container', 'active');
 		window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 200);
 		var animationLayer = $('.js-shape');
-		window.setTimeout(function(){if(this.currentTitle <= 2){this.currentTitle = 0;} else { this.currentTitle = 3}this.currentSlide = 0;this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
-		window.setTimeout(function(){this.fullScreen = false;this.initialize(false);}.bind(this),2000);
+		window.setTimeout(function(){this._slideColorTransition();this._detachScrollHandler()}.bind(this),200);
+		window.setTimeout(function(){this.fullScreen = false;this.initialize(false);this._animating = false;}.bind(this),2000);
 		window.setTimeout(function(){this._removeAnimationLayerStepTwo(animationLayer);this._removeAnimationLayerStepOne(animationLayer)}.bind(this), 1700);
 		window.setTimeout(function(){this._removeAnimationLayerStepThree(animationLayer);}.bind(this), 1000);
 		window.setTimeout(function(){this._removeAnimationLayerStepFour(animationLayer)}.bind(this), 200);	
@@ -84,6 +88,7 @@ export class Home1Component{
 	}
 
 	jumpToSlide(num){
+		if(this._animating){return;}
 		if(!this.fullScreen){
 			this.currentSlide = num;
 			this.currentTitle = num;

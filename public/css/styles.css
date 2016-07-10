@@ -401,6 +401,7 @@ ul, li{
     z-index: 300;
     width: 100vw;
     height: auto;
+    background-color: white;
     top: 50%;
     transform: translateY(-50%);
     left: 0px;
@@ -408,7 +409,7 @@ ul, li{
     height: auto;
     border-width: 0px 0px 1px 0px;
     border-color: rgba(255, 255, 255, .7);
-    border-style: solid;
+    border-style: dotted;
     width: 0%;
     -webkit-transition: width 4s linear;
     -moz-transition: width 4s linear;
@@ -456,7 +457,6 @@ ul, li{
     text-align: center;
     font-weight: 900;
     z-index: 300;
-    transform: ;
     -webkit-transition: left 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
     -moz-transition: left 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
     -o-transition: left 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), color 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19), font-size 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19),  opacity 0ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -1460,7 +1460,231 @@ ul, li{
  .item.active img{
     opacity: 1;
  }
+
+ /*==============================
+ =            @MEDIA            =
+ ==============================*/
  
- 
- 
- 
+ @media screen and (min-width: 1219px) and (max-width: 1919px){
+    .progress-title{
+        font-size: 35px !important;
+    }
+    .progress-title.second{
+        font-size: 55px !important;
+    }
+    .navbar-item{
+        font-size: 18px !important;
+        padding: 0 15px !important;
+    }
+    .home-nav-container{
+        transform: translateY(-80%) !important;
+        right: 75px !important;
+    }
+    .home-nav {
+        font-size: 18px !important;
+    }
+    .home-nav-current{
+        font-size: 70px !important;
+        left: 60%;
+    }
+    .navbar-brand{
+        padding-left: 15px !important;
+        padding-top: 5px !important;
+        transform: scale(0.8, 0.8) !important;
+        margin-top: -15px !important;
+    }
+    .navbar-brand-text{
+        top: 40px !important;
+    }
+    .phone .top{
+        height: 36px !important;
+    }
+    .phone .top .camera{
+        top: 8px !important;
+    }
+    .phone .top .speaker{
+        top: 22px !important;
+    }
+    .phone img{
+        height: 82% !important;
+    }
+    .phone .bottom{
+        height: 25px !important;
+    }
+    .phone .bottom div{
+        top: 5px !important;
+    }
+    .phone .bottom div span{
+        width: 20px!important;
+        height: 20px!important;
+    }
+    .phone {
+        height: 100% !important;
+        border-radius: 5px !important;
+    }
+    .project-text{
+        padding: 25px 0px !important;
+    }
+    .project-title{
+        font-size: 35px !important;
+    }
+    .project-role{
+        font-size: 18px !important;
+    }
+    .project-description{
+        font-size: 18px !important;
+    }
+    .project-tech{
+        font-size: 18px !important;   
+    }
+    .section-header-content{
+        font-size: 20px !important;
+    }
+    .title {
+        font-size: 25px !important;
+    }
+    .title:after{
+        height: 3px !important;
+    }
+    .skills-title{
+        font-size: 20px !important;
+        margin-top: 5px !important;
+    }
+    .section-intro-text p{
+        font-size: 20px !important;
+    }
+    .text{
+        font-size: 18px !important;
+    }
+    .sub-text{
+        font-size: 15px !important;
+    }
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1219px){
+    .slide-image-container img{
+        width: auto !important;
+    }
+    .section-header-content{
+        margin-bottom: 0px !important;
+    }
+    .navbar-list{
+        padding-right: 0px;
+    }
+    .progress-title{
+        font-size: 45px !important;
+    }
+    .progress-title.first{
+        left: -50% !important;
+    }
+    .progress-title.second{
+        font-size: 55px !important;
+    }
+    .progress-title.third{
+        left: 150% !important;
+    }
+    .navbar-item{
+        font-size: 18px !important;
+        padding: 0 15px !important;
+    }
+    .wrap{
+        padding: 50px 25px 100px 25px !important;
+    }
+    .wrap .section-intro{
+        margin-top: 25px !important;
+    }
+    .home-nav-container{
+        transform: translateY(-60%) !important;
+        right: 35px !important;
+    }
+    .home-nav {
+        font-size: 18px !important;
+    }
+    .home-nav-current{
+        font-size: 70px !important;
+        left: 60%;
+    }
+    .navbar-brand{
+        padding-left: 15px !important;
+        padding-top: 5px !important;
+        transform: scale(0.8, 0.8) !important;
+        margin-top: -15px !important;
+    }
+    .navbar-brand-text{
+        top: 40px !important;
+    }
+    .phone .top{
+        height: 32px !important;
+    }
+    .phone .top .camera{
+        top: 8px !important;
+    }
+    .phone .top .speaker{
+        top: 22px !important;
+    }
+    .phone img{
+        height: 75% !important;
+    }
+    .phone .bottom{
+        height: 25px !important;
+    }
+    .phone .bottom div{
+        top: 5px !important;
+    }
+    .phone .bottom div span{
+        width: 18px!important;
+        height: 18px!important;
+    }
+    .phone {
+        height: 100% !important;
+        border-radius: 5px !important;
+    }
+    .project-item{
+        padding-left: 25px !important;
+        padding-right: 40px !important;
+    }
+    .project-text{
+        padding: 25px 0px !important;
+        padding-left: 15px !important;
+    }
+    .project-title{
+        font-size: 20px !important;
+    }
+    .project-role{
+        font-size: 12px !important;
+    }
+    .project-description{
+        font-size: 12px !important;
+    }
+    .project-tech{
+        font-size: 12px !important;   
+    }
+    .section-header-content{
+        font-size: 20px !important;
+        margin-bottom: 25px !important;
+    }
+    .title {
+        font-size: 25px !important;
+    }
+    .title:after{
+        height: 3px !important;
+    }
+    .skills-title{
+        font-size: 15px !important;
+        margin-top: 5px !important;
+    }
+    .section-intro-text p{
+        font-size: 15px !important;
+    }
+    .text{
+        font-size: 18px !important;
+    }
+    .sub-text{
+        font-size: 15px !important;
+    }
+    .community{
+        padding-top: 70px !important;
+    }
+ }
+
+
