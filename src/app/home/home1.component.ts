@@ -18,7 +18,7 @@ export class Home1Component{
 	currentTitle = 0;
 	titleNum = 5;
 	slideColors = ['rgba(152, 202, 230,0.98)', 'rgba(26, 55, 66, 0.9)', 'rgba(46, 53, 46,0.98)'];
-	backgroundColors = ['rgba(32, 100, 146, .95)', '#105db9', 'rgba(30, 67, 67,0.6)'];
+	backgroundColors = ['rgba(105, 178, 220, 0.35)', 'rgba(0,0,0,0.35)', 'rgba(30, 67, 67,0.6)'];
 	filterColors = ['rgba(85, 178, 220, 0.35)'];
 	fullScreen = true;
 	private _animating = false;

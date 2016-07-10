@@ -1673,6 +1673,12 @@ ul, li{
         font-size: 15px !important;
         margin-top: 5px !important;
     }
+    .skill-items{
+        font-size: 13px !important;
+    }
+    .skill-hours{
+        font-size: 20px !important;
+    }
     .section-intro-text p{
         font-size: 15px !important;
     }
@@ -1684,6 +1690,202 @@ ul, li{
     }
     .community{
         padding-top: 70px !important;
+    }
+ }
+
+ @media screen and (min-width: 0px) and (max-width: 768px){
+    .avatar{
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .slide-image-container img{
+        width: auto !important;
+    }
+    .section-header-content{
+        margin-bottom: 0px !important;
+    }
+    .navbar-list{
+        padding-right: 0px;
+    }
+    .progress-title{
+        font-size: 15px !important;
+    }
+    .progress-title.first{
+        left: -50% !important;
+    }
+    .progress-title.second{
+        font-size: 35px !important;
+    }
+    .progress-title.third{
+        left: 150% !important;
+    }
+    .navbar-item{
+        font-size: 12px !important;
+        padding: 0 5px !important;
+    }
+    .navbar-item .text-decorator{
+        margin-bottom: 2px !important;
+    }
+    .wrap{
+        padding: 50px 25px 100px 25px !important;
+    }
+    .wrap .section-intro{
+        margin-top: 25px !important;
+    }
+    .home-nav-container{
+        transform: translateY(-60%) !important;
+        right: 35px !important;
+    }
+    .home-nav {
+        font-size: 13px !important;
+    }
+    .home-nav-current{
+        font-size: 40px !important;
+        left: 80% !important;
+        top: 5px !important;
+    }
+    .navbar-brand{
+        transform: scale(.6)!important;
+        margin-top: -35px!important;
+        margin-left: -20px;
+        padding-top: 0px !important;
+        padding-left: 15px !important;
+    }
+    .navbar-brand-text{
+        top: 32px !important;
+    }
+    .navbar-brand svg{
+        margin-top: -5px !important;
+    }
+    .js-shape--top{
+        transform: matrix(1, 0, 0, 1, 100, -50);
+    }
+    .js-shape--bottom{
+        transform: matrix(1, 0, 0, 1, -100, 50);   
+    }
+    .browser .top span{
+        font-size: 10px !important;
+    }
+    .phone {
+        height: 100% !important;
+        border-radius: 5px !important;
+        top: 50px !important;
+        padding: 0px 5px !important;
+    }
+    .phone .top{
+        height: 25px !important;
+    }
+    .phone .top .camera span{
+        height: 5px !important;
+        width: 5px !important;
+    }
+    .phone .top .camera{
+        top: 5px !important;
+    }
+    .phone .top .speaker{
+        top: 16px !important;
+    }
+    .phone .top .speaker span{
+        height: 2px !important;
+    }
+    .phone img{
+        height: 75% !important;
+    }
+    .phone .bottom{
+        height: 25px !important;
+    }
+    .phone .bottom div{
+        top: 5px !important;
+    }
+    .phone .bottom div span{
+        width: 13px!important;
+        height: 13px!important;
+    }
+    .project-item{
+        padding-left: 25px !important;
+        padding-right: 40px !important;
+        margin-top: 0px !important;
+    }
+    .project-text{
+        padding: 25px 0px !important;
+        padding-left: 5px !important;
+    }
+    .project-title{
+        font-size: 20px !important;
+        margin-bottom: 5px !important;
+    }
+    .project-role{
+        font-size: 12px !important;
+        margin-bottom: 15px !important;
+    }
+    .project-description{
+        font-size: 12px !important;
+        margin-bottom: 15px !important;
+    }
+    .project-tech{
+        font-size: 12px !important;   
+    }
+    .section-header-content{
+        font-size: 13px !important;
+        margin-bottom: 25px !important;
+    }
+    .title {
+        font-size: 15px !important;
+        margin-bottom: 40px !important;
+    }
+    .title:after{
+        height: 3px !important;
+    }
+    .scroller-icon{
+        font-size: 27px !important;
+        width: 38px !important;
+        height: 38px !important;
+    }
+    .scroller-icon i{
+        margin-left: 1px !important;
+    }
+    .section-header{
+        padding: 25px 0px !important;
+    }
+    .section-header-skills{
+        margin-bottom: 40px !important;
+    }
+    .skills-title{
+        font-size: 15px !important;
+        margin-top: 5px !important;
+    }
+    .skill-items{
+        font-size: 13px !important;
+    }
+    .skill-hours{
+        font-size: 20px !important;
+    }
+    .section-intro-text p{
+        font-size: 13px !important;
+    }
+    .text{
+        font-size: 18px !important;
+    }
+    .sub-text{
+        font-size: 15px !important;
+    }
+    .community{
+        padding-top: 70px !important;
+    }
+    .timeline-marker-text{
+        font-size: 13px !important;
+        margin-top: 30px !important;
+    }
+    .timeline-marker{
+        left: 4px !important;
+    }
+    .timeline-marker i{
+        font-size: 35px !important;
+    }
+    .timeline-marker img{
+        width: 50px !important;
+        height: 50px !important;
+        margin-left: -10px !important;
     }
  }
 
