@@ -265,6 +265,7 @@ ul, li{
  .slide-content-container{
     height: auto;
     position: absolute;
+    overflow-x: hidden;
  }
  .slide-content-container .placeholder{
     background-color: transparent;
@@ -1733,7 +1734,7 @@ ul, li{
         margin-top: 25px !important;
     }
     .home-nav-container{
-        transform: translateY(-60%) !important;
+        transform: translateY(-40%) !important;
         right: 35px !important;
     }
     .home-nav {
