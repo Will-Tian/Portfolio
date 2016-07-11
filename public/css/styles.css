@@ -27,6 +27,9 @@ ul, li{
 .wrap{
     padding: 100px 50px;   
 }
+.social-icon a{
+    color: white;
+}
 @media screen and (max-width: 768px){
     .wrap{
         padding: 15px 50px !important;    

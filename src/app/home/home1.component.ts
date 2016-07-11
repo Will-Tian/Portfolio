@@ -13,9 +13,9 @@ import {BioComponent} from '../bio/bio.component';
 })
 
 export class Home1Component{
-	currentSlide = 0;
+	currentSlide = 1;
 	slideNum = 2;
-	currentTitle = 0;
+	currentTitle = 1;
 	titleNum = 5;
 	slideColors = ['rgba(152, 202, 230,0.98)', 'rgba(26, 55, 66, 0.9)', 'rgba(46, 53, 46,0.98)'];
 	backgroundColors = ['rgba(105, 178, 220, 0.35)', 'rgba(0,0,0,0.35)', 'rgba(30, 67, 67,0.6)'];
