@@ -35,10 +35,10 @@
 					<defs>
 						<mask id="js-home--shapes">
 							<rect width="1596" height="1000" fill="#fff"></rect>
-							<path class="js-shape first second third fourth js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
+							<path class="js-shape js-shape--top" d="M523.602,499.965c25.555,0,51.004-9.793,70.328-29.062l549.008-549.087
 								c38.752-38.829,38.752-101.904,0-140.734c-38.855-38.855-101.801-38.855-140.76,0L453.273,329.984
 								c-39.012,38.961-39.012,101.957,0,140.918C472.648,490.172,498.203,499.965,523.602,499.965z"></path>
-							<path class="js-shape first second third fourth js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
+							<path class="js-shape js-shape--bottom" d="M1002.125,529.158l-548.904,549.035c-38.959,38.934-38.959,101.879,0,140.709
 								c19.402,19.453,44.852,29.168,70.381,29.168c25.424,0,50.953-9.715,70.406-29.168l548.824-548.904
 								c38.883-38.961,38.883-101.904,0-140.84C1103.924,490.252,1041.006,490.252,1002.125,529.158z"></path>
 						</mask>
@@ -135,7 +135,7 @@
 							</div>
 
 
-					<div class="scroller-container active slide">
+					<div class="scroller-container">
 						<div class="scroller">
 							<div class="scroller-icon" (click)="scrollSlideToView()">
 								<i class="fa fa-chevron-circle-down" aria-hidden="true"></i> 
@@ -163,6 +163,24 @@
 						<experience *ngIf="currentSlide === 0"></experience>
 						<portfolio *ngIf="currentSlide === 1"></portfolio>
 						<bio *ngIf="currentSlide === 2"></bio>
+
+						<div class="partial-nav-container" [ngClass]="{inverted: currentSlide === 1 || currentSlide === 2}">
+							<div class="partial-nav previous" (click)="previousSlide()">
+								<span *ngIf="currentSlide === 0">Bio</span>
+								<span *ngIf="currentSlide === 1">Experience</span>
+								<span *ngIf="currentSlide === 2">Portfolio</span>
+							</div>
+							<div class="partial-nav next" (click)="nextSlide()">
+								<span *ngIf="currentSlide === 0">Portfolio</span> 
+								<span *ngIf="currentSlide === 1"> Bio</span>
+								<span *ngIf="currentSlide === 2">Experience</span>
+							</div>
+							<div class="partial-nav-text"> 
+								<span *ngIf="currentSlide === 0">01</span>
+								<span *ngIf="currentSlide === 1">02</span>
+								<span *ngIf="currentSlide === 2">03</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
