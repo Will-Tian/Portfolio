@@ -126,12 +126,12 @@ export class Home1Component{
 
 	scrollSlideToView(){
 		var top = $(window).height();
-		$('#slide-content').animate({scrollTop: top}, 500, 'easeInOutCubic')
+		$('#slide-content').animate({scrollTop: top}, 500)
 	}
 
 	previousSlide(){
 		this.cleanUp();
-		$('#slide-content').animate({scrollTop: 0}, 0, 'easeInOutCubic')
+		$('#slide-content').animate({scrollTop: 0}, 0)
 		this._slideTransitionReverse();
 		this._progressTitleTransitionReverse();
 		this._slideColorTransition();
@@ -139,7 +139,7 @@ export class Home1Component{
 
 	nextSlide(){
 		this.cleanUp();
-		$('#slide-content').animate({scrollTop: 0}, 0, 'easeInOutCubic')
+		$('#slide-content').animate({scrollTop: 0}, 0)
 		this._slideTransition();
 		this._progressTitleTransition();
 		this._slideColorTransition();
