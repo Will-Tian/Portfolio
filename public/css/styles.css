@@ -1380,7 +1380,7 @@ ul, li{
  =            Style Classes            =
  =====================================*/
  .no-padding {
-     padding: 0;
+     padding: 0px !important;
  }
  .size-fixed {
      width: 100%;
