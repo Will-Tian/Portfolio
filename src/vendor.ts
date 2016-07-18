@@ -7,3 +7,5 @@ import '@angular/http';
 import '@angular/router-deprecated';
 // RxJS
 import 'rxjs';
+//Jquery
+import './jquery.min.js';

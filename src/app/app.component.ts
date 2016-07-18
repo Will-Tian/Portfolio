@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import '../../public/css/styles.css';
+import '../../public/css/bootstrap.min.css';
 import {HomeComponent} from './home/home.component.ts';
 @Component({
   selector: 'portfolio-app',
