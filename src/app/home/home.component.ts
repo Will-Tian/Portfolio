@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ScrollService} from '../directive-services/scroll.service';
+import {BrowserService} from '../browser-services/browser.service';
 import {ScrollCollectionDirective} from '../directives/scroll-collection.directive';
 import {ScrollItemDirective} from '../directives/scroll-item.directive.ts';
 import {NavComponent} from '../nav/nav.component';
@@ -12,7 +13,7 @@ import {Home4Component} from './home4.component';
   selector: 'home-page',
   template: require('./home.component.html'),
   styles: [require('./home.component.css')],
-  providers: [ScrollService],
+  providers: [ScrollService, BrowserService],
   directives: [ScrollCollectionDirective, ScrollItemDirective, NavComponent, Home1Component, Home2Component, Home3Component, Home4Component]
 })
 

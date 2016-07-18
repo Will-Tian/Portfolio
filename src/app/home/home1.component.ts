@@ -1,5 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {ScrollService} from '../directive-services/scroll.service';
+import {BrowserService} from '../browser-services/browser.service';
 import {NavComponent} from '../nav/nav.component';
 import {PortfolioComponent} from '../portfolio/portfolio.component';
 import {ExperienceComponent} from '../experience/experience.component';
@@ -13,6 +14,13 @@ import {BioComponent} from '../bio/bio.component';
 })
 
 export class Home1Component{
+	constructor(private _browserService: BrowserService) {
+		this._browserService._initializeBrowserDetect();
+		this.browserName = this._browserService._browserDetectInstance.browser;
+		console.log('browser: ' + this.browserName);
+	}
+
+	browserName: string;
 	currentSlide = 0;
 	slideNum = 2;
 	currentTitle = 0;
@@ -25,6 +33,7 @@ export class Home1Component{
 	private _slideAnimationInterval: any;
 	private _progressBarInterval: any;
 	private _progressTitleInterval: any;
+	private _browserDetectInstance: any;
 
 	ngOnInit() { this.initialize(true); }
 	ngOnDestroy() { this.cleanUp(); }
@@ -48,6 +57,18 @@ export class Home1Component{
 	}	
 
 	startFullScreenAnimation(){
+		if(this.browserName !== 'Chrome' && !this.fullScreen){
+			this._animating = true;
+			this.cleanUp();
+			var animationLayer = $('.js-shape');
+			this.fullScreen = true;
+			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'slide');}.bind(this), 0);
+			window.setTimeout(function(){this._toggleLayer('.scroller-container', 'active');}.bind(this), 1);
+			window.setTimeout(function(){this._attachScrollHandler();this._animating = false;$('#slide-content').css('overflow', 'scroll');}.bind(this), 2);
+			return;
+		} else if(this.browserName !== 'Chrome' && this.fullScreen){
+			return;
+		}
 		if(this._animating){return;}
 		if(!this.fullScreen){
 			this._animating = true;
@@ -66,6 +87,7 @@ export class Home1Component{
 		}
 	}
 	revertFullScreenAnimation(){
+		if(this.browserName !== 'Chrome'){this.jumpToSlide(0);return;}
 		if(!this.fullScreen || this._animating){return;}
 		this._animating = true;
 		this._toggleLayer('.scroller-container', 'active');

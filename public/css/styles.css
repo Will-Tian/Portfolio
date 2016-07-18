@@ -1055,7 +1055,7 @@ ul, li{
     color: rgba(255,255,255,0.3);
  }
  .inverted .partial-nav-text{
-    color: rgba(28, 39, 65, 0.35);
+    color: rgba(28, 39, 65, 0.2);
  }
  .fullScreen .home-nav-current{
     color: rgba(255,255,255,0.6);
@@ -1074,11 +1074,13 @@ ul, li{
     opacity: 1;
     top: 0%;
     animation: position-change-vertical-reverse 1s;
+    -webkit-animation: none;
  }
  .current-number.top{
     opacity: 0;
     top: -30%;
     animation: position-change-vertical 1s;
+    -webkit-animation: none;
  }
  .current-number.bottom{
     top: 100%;
@@ -1091,12 +1093,40 @@ ul, li{
     50%{
         opacity: 0;
     }
+    100%{
+        opacity: 0;
+    }
+ }
+ @-webkit-keyframes position-change-vertical {
+    0% {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
  }
  @keyframes position-change-vertical-reverse {
     0% {
         opacity: 0;
     }
     80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+ }
+ @-webkit-keyframes position-change-vertical-reverse {
+    0% {
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
         opacity: 1;
     }
  }
@@ -1109,8 +1139,24 @@ ul, li{
         opacity: 1;
     }
  }
+ @-webkit-keyframes delayed-opacity {
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+ }
 
  @keyframes deferred-opacity {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+ }
+ @-webkit-keyframes deferred-opacity {
     0%{
         opacity: 1;
     }
