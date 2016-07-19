@@ -1810,8 +1810,12 @@ ul, li{
  }
 
  @media screen and (min-width: 768px) and (max-width: 1219px){
-    .slide-image-container img{
+    /*.slide-image-container img{
         width: auto !important;
+    }*/
+    .slide-image-container img{
+        /*width: auto !important;*/
+        object-fit: cover;
     }
     .section-header-content{
         margin-bottom: 0px !important;
@@ -1960,7 +1964,7 @@ ul, li{
     }
  }
 
- @media screen and (min-width: 0px) and (max-width: 768px){
+ @media screen and (max-width: 768px){
     .avatar{
         width: 100px !important;
         height: 100px !important;
