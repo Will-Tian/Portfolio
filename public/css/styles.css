@@ -28,7 +28,7 @@ ul, li{
     padding: 100px 50px;   
 }
 .social-icon a{
-    color: white;
+    color: white !important;
 }
 @media screen and (max-width: 768px){
     .wrap{
@@ -1651,7 +1651,7 @@ ul, li{
  }
 
  .slide1 .filter-dark:after{
-    background-color: rgba(105, 178, 220, 0.35);
+    background-color: rgba(105, 178, 220, 0.25);
  }
 
  .slide2 .filter-dark:after{
@@ -1660,10 +1660,10 @@ ul, li{
  }
 
  .slide3 .filter-dark:after{
-    background-color: rgba(30, 67, 67,0.6);
+    background-color: rgba(30, 67, 67,0.35);
  }
  .slide3.fullScreen .filter-dark:after{
-    background-color: rgba(30, 67, 67,0.6);
+    background-color: rgba(30, 67, 67,0.35);
  }
 
  /*================================
