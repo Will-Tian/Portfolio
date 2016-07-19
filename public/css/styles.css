@@ -1966,7 +1966,8 @@ ul, li{
         height: 100px !important;
     }
     .slide-image-container img{
-        width: auto !important;
+        /*width: auto !important;*/
+        object-fit: cover;
     }
     .section-header-content{
         margin-bottom: 0px !important;
@@ -2036,7 +2037,7 @@ ul, li{
         -moz-transform: scale(.6) !important;
         -o-transform: scale(.6) !important;
         -ms-transform: scale(.6) !important;
-        margin-top: -35px!important;
+        margin-top: -15px!important;
         margin-left: -20px;
         padding-top: 0px !important;
         padding-left: 15px !important;
